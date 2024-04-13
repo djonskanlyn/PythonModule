@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+
+		<div class="wrapper">
+			<header class="header">
+				<div id="logoContainer"></div>
+				<nav>
+					<ul id="navigation"></ul>
+				</nav>
+			</header>
+
+			<article class="main">
+				<h2>Gallery of Healthy Food</h2>
+				<div class="gallery">
+
+					<!-- full images -->
+					<div class="galleryPics">
+						<div class="number_text">1 / 4</div>
+						<img src="img/image1.jpg" style="width: 100%;" />
+					</div>
+
+					<div class="galleryPics">
+						<div class="number_text">2 / 4</div>
+						<img src="img/image2.jpg" style="width: 100%;" />
+					</div>
+
+					<div class="galleryPics">
+						<div class="number_text">3 / 4</div>
+						<img src="img/image3.jpg" style="width: 100%;" />
+					</div>
+
+					<div class="galleryPics">
+						<div class="number_text">4 / 4</div>
+						<img src="img/image4.jpg" style="width: 100%;" />
+					</div>
+					
+					<!-- next and previous buttons -->
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+					<!-- image descriptor -->
+					<div class="caption-container">
+						<p id="caption"></p>
+					</div>
+					
+					<!-- thumbnail images -->
+					<div class="row">
+						<div class="column">
+							<img class="thumb cursor" src="img/image1.jpg" style="width: 100%;" onclick="currentSlide(1)" alt="dry fruits and vegetables" loading="lazy" />
+						</div>
+						<div class="column">
+							<img class="thumb cursor" src="img/image2.jpg" style="width: 100%;" onclick="currentSlide(2)" alt="buddha bowl" loading="lazy"/>
+						</div>
+						<div class="column">
+							<img class="thumb cursor" src="img/image3.jpg" style="width: 100%;" onclick="currentSlide(3)" alt="vegetable salad" loading="lazy"/>
+						</div>
+						<div class="column">
+							<img class="thumb cursor" src="img/image4.jpg" style="width: 100%;" onclick="currentSlide(4)" alt="vegan salad" loading="lazy"/>
+						</div>
+					</div>
+				</div>
+
+
+				<div>
+
+					<!-- reference sources for images -->
+				<p class="reference">
+					Image 1 by <a href="https://www.freepik.com/free-photo/elevated-view-ingredients-dryfruits-vegetables-black-background_3668351.htm#query=healthy%20food&position=1&from_view=keyword&track=ais&uuid=22ab89a7-165f-46e4-b3f2-ec389b10fe7c">Freepik</a>
+				</p>
+				<p class="reference">
+					Image 2 by <a href="https://www.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_13807905.htm#query=healthy%20food&position=2&from_view=keyword&track=ais&uuid=44593ea1-0db8-4ac1-8c71-b2d137a02fd1">jcomp on Freepik</a>
+				</p>
+				<p class="reference">
+					Image 3 by <a href="https://www.freepik.com/free-photo/top-view-ingredients-veggies-salad_8964876.htm#query=healthy%20food&position=3&from_view=keyword&track=ais&uuid=f67978c8-43c6-4870-bde2-bb068e65643b">Freepik</a>
+				</p>
+				<p class="reference">
+					Image 4 by <a href="https://www.freepik.com/free-photo/female-hands-holding-bowl-vegan-salad-with-fresh-vegetables-top-view_165461263.htm#query=healthy%20food&position=10&from_view=keyword&track=ais&uuid=3f79ac72-c6fb-4529-8a52-d3fcb051b903">pvproductions on Freepik</a>
+				</p>
+				</div>
+
+			</article>
+
+			<aside class="aside aside-1"></aside>
+
+			<aside class="aside aside-2"></aside> <!-- left empty on purpose -->
+
+			<footer class="footer">
+				Copyright &copy; 2024 John Scanlon<br />
+				<a href="mailto:johnscanlon104@gmail.com">johnscanlon104@gmail.com</a>
+			</footer>
+		</div>
+		<script src="js/script.js" async></script>
+		<script src="js/gallery.js" async></script>
+	</body>
+</html>
+
+
+
