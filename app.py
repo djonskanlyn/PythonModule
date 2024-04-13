@@ -1,39 +1,27 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-@app.route("/")                                 #endpoint
+@app.route("/")
 @app.route("/home")
-@app.route("/home/")
-def home():
-    return render_template("home.html")         #looking for /templates/home.html
+def index():
+    return render_template("index.html")
+
+@app.route("/gallery")
+def gallery():
+    return render_template("gallery.html")
+
+@app.route("/faqs")
+def faqs():
+    return render_template("faqs.html")
+
+@app.route("/meals")
+def weekend():
+    return render_template("meals.html")
 
 @app.route("/contact")
-@app.route("/contact/")
-def contact():
-    return render_template("contact.html")      #looking for /templates/contact.html  
+def festival():
+    return render_template("contact.html")
 
-@app.route("/greet")
-@app.route("/greet/")
-@app.route("/greet/<name>")
-def greet(name="unknown"):
-    return f"<h1>Hi there! {name}</h1>"     
-
-@app.route("/takeNum")                          #testing to see if change saved to git
-@app.route("/takeNum/")
-@app.route("/takeNum/<num>")
-def takeNum(num="unknown"):
-    return f"<h1>Your age as a number is: {num}</h1>"    
-
-@app.route("/digitSum/<int:number>")
-def digitSum(number):
-    """Compute the digit sum of the url provided"""
-    sum = 0
-    while(digit := number%10):
-        sum += digit
-        number = number // 10
-    
-    return f"<h1> The digit sum is {sum}</h1>"
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True, port=8080)

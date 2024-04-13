@@ -12,7 +12,7 @@ function addLogoImage(image, alt_text, size) {
     document.querySelector('#logoContainer').appendChild(img);
 }
 
-addLogoImage('img/logoImage.png', 'Website Logo', '50px');
+addLogoImage('static/images/logoImage.png', 'Website Logo', '50px');
 
 // add navigation menu to header
 function createNavigationLink(name, url) {
@@ -29,7 +29,8 @@ function createNavigationLink(name, url) {
 
 const menu = document.querySelector('#navigation');
 
-menu.appendChild(createNavigationLink('Home',"index.html"));
-menu.appendChild(createNavigationLink('Gallery',"gallery.html"));
-menu.appendChild(createNavigationLink('FAQs',"faqs.html"));
-menu.appendChild(createNavigationLink('Meals',"meals.html"));
+menu.appendChild(createNavigationLink('Home',"/home"));
+menu.appendChild(createNavigationLink('Gallery',"/gallery"));
+menu.appendChild(createNavigationLink('FAQs',"/faqs"));
+menu.appendChild(createNavigationLink('Meals',"/meals"));
+menu.appendChild(createNavigationLink('Contact',"/contact"));
