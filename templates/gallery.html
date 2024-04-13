@@ -9,22 +9,34 @@
 			<!-- full images -->
 			<div class="galleryPics">
 				<div class="number_text">1 / 4</div>
-				<img src="{{ url_for('static', filename='images/image1.jpg') }}" style="width: 100%;" />
+				<img 
+				src="https://img.freepik.com/free-photo/elevated-view-ingredients-dryfruits-vegetables-black-background_23-2148026898.jpg?t=st=1713012780~exp=1713016380~hmac=d2668eb677badd7ee6e47eaa17397eba34e481d80c46fae995b8bc64f2bea846&w=996"  
+				style="width: 100%;"
+				/>
 			</div>
 
 			<div class="galleryPics">
 				<div class="number_text">2 / 4</div>
-				<img src="{{ url_for('static', filename='images/image2.jpg') }}" style="width: 100%;" />
+				<img 
+				src="https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg?t=st=1713012942~exp=1713016542~hmac=1a61ac3b815c9cac4ac647ee085a9d0413f4f2e245987c9b8a3e510bc5d82160&w=996" 
+				style="width: 100%;" 
+				/>
 			</div>
 
 			<div class="galleryPics">
 				<div class="number_text">3 / 4</div>
-				<img src="{{ url_for('static', filename='images/image3.jpg') }}" style="width: 100%;" />
+				<img 
+				src="https://img.freepik.com/free-photo/top-view-ingredients-veggies-salad_23-2148585648.jpg?t=st=1713013076~exp=1713016676~hmac=55dde1a6bc747b7cb19a2566fbb62d2536091afc09af19b614bb935f59c2b345&w=996" 
+				style="width: 100%;" 
+				/>
 			</div>
 
 			<div class="galleryPics">
 				<div class="number_text">4 / 4</div>
-				<img src="{{ url_for('static', filename='images/image4.jpg') }}" style="width: 100%;" />
+				<img 
+				src="https://img.freepik.com/free-photo/female-hands-holding-bowl-vegan-salad-with-fresh-vegetables-top-view_169016-52093.jpg?t=st=1713013186~exp=1713016786~hmac=4cfd3864b96ea4b93477ce087bdd0b1fbc59fe456d41fa08b528441e0a21a96b&w=996" 
+				style="width: 100%;" 
+				/>
 			</div>
 			
 			<!-- next and previous buttons -->
@@ -39,35 +51,42 @@
 			<!-- thumbnail images -->
 			<div class="row">
 				<div class="column">
-					<img class="thumb cursor" src="{{ url_for('static', filename='images/image1.jpg') }}" style="width: 100%;" onclick="currentSlide(1)" alt="dry fruits and vegetables" loading="lazy" />
+					<img 
+					class="thumb cursor" 
+					src="https://img.freepik.com/free-photo/elevated-view-ingredients-dryfruits-vegetables-black-background_23-2148026898.jpg?t=st=1713012780~exp=1713016380~hmac=d2668eb677badd7ee6e47eaa17397eba34e481d80c46fae995b8bc64f2bea846&w=996" 
+					style="width: 100%;" 
+					onclick="currentSlide(1)" 
+					alt="dry fruits and vegetables"
+					/>
 				</div>
 				<div class="column">
-					<img class="thumb cursor" src="{{ url_for('static', filename='images/image2.jpg') }}" style="width: 100%;" onclick="currentSlide(2)" alt="buddha bowl" loading="lazy"/>
+					<img 
+					class="thumb cursor" 
+					src="https://img.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.jpg?t=st=1713012942~exp=1713016542~hmac=1a61ac3b815c9cac4ac647ee085a9d0413f4f2e245987c9b8a3e510bc5d82160&w=996" 
+					style="width: 100%;" 
+					onclick="currentSlide(2)" 
+					alt="buddha bowl"
+					/>
 				</div>
 				<div class="column">
-					<img class="thumb cursor" src="{{ url_for('static', filename='images/image3.jpg') }}" style="width: 100%;" onclick="currentSlide(3)" alt="vegetable salad" loading="lazy"/>
+					<img 
+					class="thumb cursor" 
+					src="https://img.freepik.com/free-photo/top-view-ingredients-veggies-salad_23-2148585648.jpg?t=st=1713013076~exp=1713016676~hmac=55dde1a6bc747b7cb19a2566fbb62d2536091afc09af19b614bb935f59c2b345&w=996" 
+					style="width: 100%;" 
+					onclick="currentSlide(3)" 
+					alt="vegetable salad"
+					/>
 				</div>
 				<div class="column">
-					<img class="thumb cursor" src="{{ url_for('static', filename='images/image4.jpg') }}" style="width: 100%;" onclick="currentSlide(4)" alt="vegan salad" loading="lazy"/>
+					<img 
+					class="thumb cursor" 
+					src="https://img.freepik.com/free-photo/female-hands-holding-bowl-vegan-salad-with-fresh-vegetables-top-view_169016-52093.jpg?t=st=1713013186~exp=1713016786~hmac=4cfd3864b96ea4b93477ce087bdd0b1fbc59fe456d41fa08b528441e0a21a96b&w=996" 
+					style="width: 100%;" 
+					onclick="currentSlide(4)" 
+					alt="vegan salad"
+					/>
 				</div>
 			</div>
-		</div>
-
-
-		<div>
-			<!-- reference sources for images -->
-		<p class="reference">
-			Image 1 by <a href="https://www.freepik.com/free-photo/elevated-view-ingredients-dryfruits-vegetables-black-background_3668351.htm#query=healthy%20food&position=1&from_view=keyword&track=ais&uuid=22ab89a7-165f-46e4-b3f2-ec389b10fe7c">Freepik</a>
-		</p>
-		<p class="reference">
-			Image 2 by <a href="https://www.freepik.com/free-photo/buddha-bowl-dish-with-vegetables-legumes-top-view_13807905.htm#query=healthy%20food&position=2&from_view=keyword&track=ais&uuid=44593ea1-0db8-4ac1-8c71-b2d137a02fd1">jcomp on Freepik</a>
-		</p>
-		<p class="reference">
-			Image 3 by <a href="https://www.freepik.com/free-photo/top-view-ingredients-veggies-salad_8964876.htm#query=healthy%20food&position=3&from_view=keyword&track=ais&uuid=f67978c8-43c6-4870-bde2-bb068e65643b">Freepik</a>
-		</p>
-		<p class="reference">
-			Image 4 by <a href="https://www.freepik.com/free-photo/female-hands-holding-bowl-vegan-salad-with-fresh-vegetables-top-view_165461263.htm#query=healthy%20food&position=10&from_view=keyword&track=ais&uuid=3f79ac72-c6fb-4529-8a52-d3fcb051b903">pvproductions on Freepik</a>
-		</p>
 		</div>
 
 	</article>
