@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() { // checks that the DOM has loaded
     fetchCategories(); // runs fetch meal categories function
     document.getElementById('fetchMeal').addEventListener('click', fetchRandomMeal); // listen out for click on fetch meal button and call fetch random meal function
+    document.getElementById('saveFavourite').addEventListener('click', sendRecipeToFavourites);
 });
 
 // function to fetch meal categories from API
@@ -56,14 +57,65 @@ function fetchMealDetails(mealId) {
         });
 }
 
-// function to display meal details on website
 function displayMeal(meal) {
+
+    const mealClass = document.getElementById('categorySelect').value;
     const mealDiv = document.getElementById('mealDisplay'); // get the mealDisplay element of the DOM
 
-    //  add the meal name as a header; add the image of the meal, provide an alt name and a width for thw image; the preparation instructions; to the webpage
-    mealDiv.innerHTML = ` 
-        <h2>${meal.strMeal}</h2>
-        <img src="${meal.strMealThumb}" alt="${meal.strMeal} Image" style="width: 300px;">
-        <p>${meal.strInstructions}</p>
+    const mealName = meal.strMeal || 'No meal found';
+    const mealThumb = meal.strMealThumb || 'static/images/No_Image_Available.jpg'; 
+    
+    const instructions = meal.strInstructions || 'No cooking instructions provided.';
+    // Regex to split on periods, question marks, and exclamation marks that are followed by a space or end of string, and not preceded by a common abbreviation
+    const mealInstructions = instructions.split(/(?<!\b(?:Mr|Mrs|Dr|Ms|Jr|Sr|St)\.)(?<!\b\d)\.\s+|\?\s+|\!\s+/g).map(item => 
+        item.trim() ? `<li>${item.trim()}</li>` : ''
+    ).join('');
+
+    
+
+    mealDiv.innerHTML = `
+
+        <h2>${mealClass}: ${mealName}</h2>
+
+        <div class="styled-frame">
+            <img src="${mealThumb}" alt="Image of ${mealName}" class="meal-image" style="width: 300px;">
+        </div>
+
+        <ul> </ul>
+
+        <div class="styled-frame">
+            <ul>${mealInstructions}</ul>
+        </div>
     `;
 }
+
+function sendRecipeToFavourites() { 
+    const mealClass = document.getElementById('mealClass').textContent;
+    const mealName = document.getElementById('mealName').textContent;
+    const mealThumb = document.getElementById('mealThumb').src;
+    const mealInstructions = document.getElementById('mealInstructions').textContent;
+
+    console.log("Sending data to /favourites:", {mealClass, mealName, mealThumb, mealInstructions});
+
+    fetch('/favourites', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            mealClass: mealClass,
+            mealName: mealName,
+            mealThumb: mealThumb,
+            mealInstructions: mealInstructions
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('HTTP error ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => console.log('Success:', data))
+    .catch((error) => console.error('Error:', error));
+}
+

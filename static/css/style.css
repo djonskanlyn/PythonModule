@@ -345,14 +345,14 @@ html {
   /* Meals Styling / The API */
   /***************************/
   
-  #fetchMeal {
+  .mealButton {
     background-color: #507586;
     color: white;
     cursor: pointer;
     width: 20%;
   }
   
-  #fetchMeal:hover {
+  .mealButton:hover {
     background-color: #0056b3;
   }
   
@@ -365,3 +365,29 @@ html {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .styled-frame {
+    display: inline-block;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+  }
+
+  .styled-title{
+    display: inline-block;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+  }
+
+  .styled-frame img {
+    display: block;
+    width: 300px;
+    height: auto;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+  
+  
