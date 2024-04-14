@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
+#from flask_cors import CORS
+
 app = Flask(__name__)
+
+#CORS(app)
 
 @app.route("/")
 @app.route("/home")
@@ -31,21 +35,29 @@ favourite_data = {} # create dict to store favourites
 
 @app.route("/favourites", methods=['POST'])
 def save_favourite():
-    favourite = request.get_json()
+        mealName = request.form.get('mealNameForm', '').strip()
 
-    if not all(k in favourite for k in ("mealClass", "mealName", "mealThumb", "mealInstructions")):
-        return jsonify({"error": "Missing data"}), 400
-    
-    favouriteId = max(favourite_data.keys(), default=0) + 1
+        # Accessing form data
+        mealId = request.form['mealIdForm'].strip()
+        mealClass = request.form['mealClassForm'].strip()
+        mealName = request.form['mealNameForm'].strip()
+        mealThumb = request.form['mealThumbForm']
+        mealInstructions = request.form['mealInstructionsForm'].strip()
 
-    favourite_data[favouriteId] = {
-        "Class": favourite["mealClass"],
-        "Meal": favourite["mealName"],
-        "Thumbnail": favourite["mealThumb"],
-        "Instructions": favourite["mealInstructions"]
-    }
 
-    return jsonify({"message": "Data saved successfully!", "id": favouriteId}), 200
+        # Validation could be added here as necessary
+        if not all([mealId, mealClass, mealName, mealInstructions]):
+           return jsonify({"error": "Missing data"}), 400
+
+        favouriteId = int(mealId)
+        favourite_data[favouriteId] = {
+            "Class": mealClass,
+            "Meal": mealName,
+            "Thumbnail": mealThumb,
+            "Instructions": mealInstructions
+        }
+
+        return jsonify({"message": "Data saved successfully!", "id": favourite_data}), 200
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    app.run(debug=True)

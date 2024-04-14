@@ -355,6 +355,12 @@ html {
   .mealButton:hover {
     background-color: #0056b3;
   }
+
+  .mealButton:disabled {
+    background-color: grey;
+    cursor: pointer;
+    width: 20%;
+  }
   
   #categorySelect {
     width: 20%;
@@ -389,5 +395,6 @@ html {
   .invisible {
     visibility: hidden;
   }
+
   
   

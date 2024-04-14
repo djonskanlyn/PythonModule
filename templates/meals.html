@@ -9,9 +9,21 @@
 		<div>
 			<select id="categorySelect"></select>
 			<button id="fetchMeal" class="mealButton">generate a recipe</button>
-			<button id="saveFavourite" class="mealButton">save as a favourite</button>
-			<div id="mealDisplay"></div>
+			<div id="mealId" class="invisible"></div>
+			<div id="mealName"></div>
+			<div id="mealThumb"></div>
+			<div id="mealClass" class="invisible"></div>
+			<div id="mealInstructions"></div>
 		</div>
+
+		<form id="favouriteForm" action="/favourites" method="post">
+			<button type="submit" class="mealButton">Save as Favourite</button>
+			<input type="number" id="mealIdForm" name="mealIdForm" class="invisible">
+			<input type="text" id="mealClassForm" name="mealClassForm" class="invisible">
+			<input type="text" id="mealNameForm" name="mealNameForm" class="invisible">
+			<input type="text" id="mealThumbForm" name="mealThumbForm" class="invisible">
+			<input type="text" id="mealInstructionsForm" name="mealInstructionsForm" class="invisible">
+		</form>
 
 	</article>
 
