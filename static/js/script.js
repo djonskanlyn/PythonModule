@@ -33,6 +33,6 @@ menu.appendChild(createNavigationLink('Home',"/home"));
 menu.appendChild(createNavigationLink('Gallery',"/gallery"));
 menu.appendChild(createNavigationLink('FAQs',"/faqs"));
 menu.appendChild(createNavigationLink('Meals',"/meals"));
-menu.appendChild(createNavigationLink('Fav',"/fav"));
+menu.appendChild(createNavigationLink('Favourites',"/favourites"));
 menu.appendChild(createNavigationLink('Contact',"/contact"));
 

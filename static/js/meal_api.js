@@ -94,10 +94,11 @@ function displayMeal(meal) {
         </div>
     `;
 
+    // sends data to form element ...
     document.getElementById('mealIdForm').value = mealIdData;  
     document.getElementById('mealClassForm').value = mealClassData; 
     document.getElementById('mealNameForm').value = mealNameData;   
     document.getElementById('mealThumbForm').value = mealThumbData;   
-    document.getElementById('mealInstructionsForm').value = instructions;  
+    document.getElementById('mealInstructionsForm').value = instructions; 
 }
 

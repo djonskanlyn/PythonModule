@@ -1,10 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 
-#from flask_cors import CORS
-
 app = Flask(__name__)
 
-#CORS(app)
 
 @app.route("/")
 @app.route("/home")
@@ -33,23 +30,23 @@ def contact():
 
 favourite_data = {} # create dict to store favourites
 
+@app.route("/favourites", methods=['GET'])
+def favourites():
+    return render_template("favourites.html", favourites=favourite_data)
+
 @app.route("/favourites", methods=['POST'])
 def save_favourite():
-        mealName = request.form.get('mealNameForm', '').strip()
-
-        # Accessing form data
+    try:
         mealId = request.form['mealIdForm'].strip()
         mealClass = request.form['mealClassForm'].strip()
         mealName = request.form['mealNameForm'].strip()
-        mealThumb = request.form['mealThumbForm']
+        mealThumb = request.form['mealThumbForm'].strip()
         mealInstructions = request.form['mealInstructionsForm'].strip()
 
+        if not all([mealId, mealClass, mealName, mealThumb, mealInstructions]):
+            return jsonify({"error": "Missing data"}), 400
 
-        # Validation could be added here as necessary
-        if not all([mealId, mealClass, mealName, mealInstructions]):
-           return jsonify({"error": "Missing data"}), 400
-
-        favouriteId = int(mealId)
+        favouriteId = int(mealId)  # Convert mealId to an integer to use as a key
         favourite_data[favouriteId] = {
             "Class": mealClass,
             "Meal": mealName,
@@ -57,7 +54,20 @@ def save_favourite():
             "Instructions": mealInstructions
         }
 
-        return jsonify({"message": "Data saved successfully!", "id": favourite_data}), 200
+        return redirect(url_for('favourites'))
+
+    except ValueError:
+        return jsonify({"error": "Invalid input for mealId"}), 400
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/delete_favourite/<int:mealId>", methods=['POST'])
+def delete_favourite(mealId):
+    if mealId in favourite_data:
+        del favourite_data[mealId]
+        return redirect(url_for('favourites'))
+    return "Meal not found", 404
+
 
 if __name__ == "__main__":
     app.run(debug=True)
