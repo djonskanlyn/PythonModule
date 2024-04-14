@@ -99,7 +99,7 @@ function displayMeal(meal) {
     document.getElementById('mealClassForm').value = mealClassData; 
     document.getElementById('mealNameForm').value = mealNameData;   
     document.getElementById('mealThumbForm').value = mealThumbData;   
-    document.getElementById('mealInstructionsForm').value = instructions; 
+    document.getElementById('mealInstructionsForm').value = instructions;
 
     document.getElementById('SaveFavouriteButton').disabled = false; // Enable the button
 }

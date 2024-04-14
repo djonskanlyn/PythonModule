@@ -24,9 +24,12 @@ def weekend():
 def fav():
     return render_template("fav.html")
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
+@app.route("/ingredients")
+def ingredients():
+    # Create a list of tuples (mealId, mealName) for the dropdown
+    meal_options = [(mealId, data['Meal']) for mealId, data in favourite_data.items()]
+    return render_template("ingredients.html", meal_options=meal_options)
+
 
 favourite_data = {} # create dict to store favourites
 
@@ -67,7 +70,6 @@ def delete_favourite(mealId):
         del favourite_data[mealId]
         return redirect(url_for('favourites'))
     return "Meal not found", 404
-
 
 if __name__ == "__main__":
     app.run(debug=True)
