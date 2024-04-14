@@ -431,5 +431,14 @@ img {
   cursor: pointer;
 }
 
+.toggle-button {
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.row-details td {
+  background-color: #f9f9f9;
+}
   
   
