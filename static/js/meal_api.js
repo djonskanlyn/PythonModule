@@ -100,5 +100,7 @@ function displayMeal(meal) {
     document.getElementById('mealNameForm').value = mealNameData;   
     document.getElementById('mealThumbForm').value = mealThumbData;   
     document.getElementById('mealInstructionsForm').value = instructions; 
+
+    document.getElementById('SaveFavouriteButton').disabled = false; // Enable the button
 }
 
